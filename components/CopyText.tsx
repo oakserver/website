@@ -3,8 +3,8 @@ import { useSignal } from "@preact/signals";
 export default function CopyText({ text }: { text: string }) {
   const copied = useSignal(false);
   return (
-    <div class="bg-gray-800 rounded text-white flex items-center min-w-0">
-      <pre class="overflow-x-auto flex-1 py-2 px-4">{text}</pre>
+    <div class="rounded-lg bg-gray-500 dark:bg-black text-white flex items-center min-w-0">
+      <pre class="overflow-x-auto flex-1 py-4 px-6">{text}</pre>
       <div class="relative my-2 mr-4">
         <button
           aria-label="Copy to Clipboard"
