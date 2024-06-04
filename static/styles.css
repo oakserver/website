@@ -30,35 +30,35 @@
 
 
 .highlight .token {
-  @apply text-darkBlue-600 dark:text-darkBlue-400;
+  @apply text-darkBlue-400;
 }
 
 .highlight .token.attr-name {
-  @apply text-blue-500;
+  @apply text-blue-400;
 }
 
 .highlight .token.class-name {
-  @apply text-blue-600 dark:text-blue-400;
+  @apply text-blue-300;
 }
 
 .highlight .token.comment {
-  @apply text-darkBlue-600 dark:text-darkBlue-400;
+  @apply text-gray-200;
 }
 
 .highlight .token.function {
-  @apply text-orange-600 dark:text-orange-400;
+  @apply text-orange-400;
 }
 
 .highlight .token.keyword {
-  @apply text-darkPurple-700 dark:text-darkPurple-500;
+  @apply text-purple-200;
 }
 
 .highlight .token.number {
-  @apply text-purple-600 dark:text-purple-400;
+  @apply  text-darkPurple-300;
 }
 
 .highlight .token.operator {
-  @apply text-yellow-800 dark:text-yellow-500;
+  @apply text-yellow-500;
 }
 
 .highlight .token.punctuation {
@@ -66,17 +66,17 @@
 }
 
 .highlight .token.regex .token {
-  @apply text-orange-600 dark:text-orange-400;
+  @apply text-orange-400;
 }
 
 .highlight .token.regex .token.regex-delimiter {
-  @apply text-red-900 dark:text-red-600;
+  @apply text-red-600;
 }
 
 .highlight .token.string {
-  @apply text-darkOrange-700 dark:text-darkOrange-400;
+  @apply text-yellow-300;
 }
 
 .highlight .token.tag {
-  @apply text-yellow-800 dark:text-yellow-500;
+  @apply text-darkOrange-400;
 }
