@@ -8,7 +8,7 @@ export default function App({ Component }: PageProps) {
         <title>oak-website</title>
         <link rel="stylesheet" href="/styles.css" />
       </head>
-      <body>
+      <body class="bg-white dark:bg-black text-black dark:text-white">
         <Component />
       </body>
     </html>

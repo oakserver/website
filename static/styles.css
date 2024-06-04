@@ -1,3 +1,27 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+#pm-deno:checked ~ *:last-child > :not(#pm-deno-content),
+#pm-npm:checked ~ *:last-child > :not(#pm-npm-content),
+#pm-yarn:checked ~ *:last-child > :not(#pm-yarn-content),
+#pm-pnpm:checked ~ *:last-child > :not(#pm-pnpm-content),
+#pm-bun:checked ~ *:last-child > :not(#pm-bun-content)  {
+  @apply hidden;
+}
+
+#pm-deno:checked ~ nav #pm-deno-dropdown,
+#pm-npm:checked ~ nav #pm-npm-dropdown,
+#pm-yarn:checked ~ nav #pm-yarn-dropdown,
+#pm-pnpm:checked ~ nav #pm-pnpm-dropdown,
+#pm-bun:checked ~ nav #pm-bun-dropdown {
+  @apply flex;
+}
+
+#pm-deno:checked ~ nav label[for='pm-deno'],
+#pm-npm:checked ~ nav label[for='pm-npm'],
+#pm-yarn:checked ~ nav label[for='pm-yarn'],
+#pm-pnpm:checked ~ nav label[for='pm-pnpm'],
+#pm-bun:checked ~ nav label[for='pm-bun'] {
+  @apply bg-primary-100 dark:bg-primary-900;
+}
