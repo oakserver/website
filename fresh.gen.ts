@@ -4,6 +4,7 @@
 
 import * as $_404 from "./routes/_404.tsx";
 import * as $_app from "./routes/_app.tsx";
+import * as $acorn from "./routes/acorn.tsx";
 import * as $index from "./routes/index.tsx";
 import * as $CopyToClipboard from "./islands/CopyToClipboard.tsx";
 import * as $PMSelect from "./islands/PMSelect.tsx";
@@ -13,6 +14,7 @@ const manifest = {
   routes: {
     "./routes/_404.tsx": $_404,
     "./routes/_app.tsx": $_app,
+    "./routes/acorn.tsx": $acorn,
     "./routes/index.tsx": $index,
   },
   islands: {

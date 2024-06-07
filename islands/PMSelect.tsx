@@ -1,7 +1,9 @@
 import CopyText from "../components/CopyText.tsx";
 import { useRef } from "preact/hooks";
 
-export default function PMSelect() {
+export default function PMSelect(
+  { pkg = "@oak/oak" }: { pkg?: string },
+) {
   const detailsRef = useRef<HTMLDetailsElement>(null);
 
   return (
@@ -123,19 +125,19 @@ export default function PMSelect() {
       </nav>
       <div>
         <div id="pm-deno-content" class="my-4">
-          <CopyText text="deno add @oak/oak" />
+          <CopyText text={`deno add ${pkg}`} />
         </div>
         <div id="pm-npm-content" class="my-4">
-          <CopyText text="npx jsr add @oak/oak" />
+          <CopyText text={`npx jsr add ${pkg}`} />
         </div>
         <div id="pm-yarn-content" class="my-4">
-          <CopyText text="yarn dlx jsr add @oak/oak" />
+          <CopyText text={`yarn dlx jsr add ${pkg}`} />
         </div>
         <div id="pm-pnpm-content" class="my-4">
-          <CopyText text="pnpm dlx jsr add @oak/oak" />
+          <CopyText text={`pnpm dlx jsr add ${pkg}`} />
         </div>
         <div id="pm-bun-content" class="my-4">
-          <CopyText text="bunx jsr add @oak/oak" />
+          <CopyText text={`bunx jsr add ${pkg}`} />
         </div>
       </div>
     </div>
