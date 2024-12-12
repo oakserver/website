@@ -125,7 +125,7 @@ export default function PMSelect(
       </nav>
       <div>
         <div id="pm-deno-content" class="my-4">
-          <CopyText text={`deno add ${pkg}`} />
+          <CopyText text={`deno add jsr:${pkg}`} />
         </div>
         <div id="pm-npm-content" class="my-4">
           <CopyText text={`npx jsr add ${pkg}`} />
