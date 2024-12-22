@@ -33,7 +33,7 @@ export default function Acorn() {
       <section class="bg-white dark:bg-gray-900">
         <div class="gap-8 items-center py-8 px-4 mx-auto max-w-screen-xl xl:gap-16 md:grid md:grid-cols-2 sm:py-16 lg:px-6">
           <img
-            class="w-full p-8 lg:p-20 xl:p-32"
+            class="w-full p-6 lg:p-18 xl:p-24"
             src="/acorn_logo.svg"
             alt="an icon of an acorn"
           />
@@ -62,6 +62,15 @@ export default function Acorn() {
                 Cloudflare Workers
               </a>.
             </p>
+            <div class="pb-6">
+              <a
+                href="https://dash.deno.com/playground/acorn-playground"
+                target="_blank"
+                class="inline-flex items-center text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:focus:ring-primary-900"
+              >
+                Visit the playground
+              </a>
+            </div>
             <PMSelect pkg="@oak/acorn" />
           </div>
         </div>
@@ -72,8 +81,14 @@ export default function Acorn() {
             code={`import { Router } from "@oak/acorn";
 
 const BOOKS = {
-  "1": { id: 1, title: "The Hound of the Baskervilles" },
-  "2": { id: 2, title: "It" },
+  "1": {
+    title: "The Hound of the Baskervilles",
+    author: "Doyle, Arthur Conan",
+  },
+  "2": {
+    title: "It",
+    author: "King, Stephen",
+  },
 };
 
 const router = new Router();
@@ -86,7 +101,7 @@ router.listen({ port: 3000 });
           />
           <div class="mt-4 md:mt-0">
             <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">
-              Rapidly create endpoints
+              Rapidly create APIs
             </h2>
             <p class="mb-6 font-light text-gray-500 md:text-lg dark:text-gray-400">
               acorn focuses on the primary use case of handling JSON data in a
@@ -102,11 +117,62 @@ router.listen({ port: 3000 });
           </div>
         </div>
       </section>
+      <section class="bg-white dark:bg-gray-900">
+        <div class="gap-8 items-center py-8 px-4 mx-auto max-w-screen-xl xl:gap-16 md:grid md:grid-cols-2 sm:py-16 lg:px-6">
+          <div class="mt-4 md:mt-0">
+            <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">
+              Integrated data validation
+            </h2>
+            <p class="mb-6 font-light text-gray-500 md:text-lg dark:text-gray-400">
+              acorn includes a schema validation system via{" "}
+              <a href="https://valibot.dev/" target="_blank" class="underline">
+                Valibot
+              </a>{" "}
+              for requests and responses, making it easy to ensure your API is
+              consistent.
+            </p>
+            <a
+              href="https://jsr.io/@oak/acorn/doc/~/SchemaDescriptor"
+              target="_blank"
+              class="inline-flex items-center text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:focus:ring-primary-900"
+            >
+              See the docs
+            </a>
+          </div>
+          <CodeBlock
+            code={`import { Router, Status, v } from "@oak/acorn";
+
+const router = new Router();
+const db = await Deno.openKv();
+
+const book = v.object({
+  author: v.string(),
+  title: v.string(),
+});
+
+router.get("/book/:id", async (ctx) => {
+  const maybeBook = await db.get(["books", ctx.params.id]);
+  if (!maybeBook) {
+    ctx.throw(Status.NotFound, "Book not found");
+  }
+  return maybeBook.value;
+}, { schema: { response: book } });
+
+router.put("/book/:id", async (ctx) => {
+  const body = await ctx.body();
+  await db.set(["books", ctx.params.id], body);
+  return book;
+}, { schema: { body: book, response: book } });
+
+router.listen({ port: 3000 });`}
+          />
+        </div>
+      </section>
       <footer class="p-4 bg-white sm:p-6 dark:bg-gray-800">
         <div class="mx-auto max-w-screen-xl">
           <div class="md:flex md:justify-between">
             <div class="mb-6 md:mb-0">
-              <a href="https://flowbite.com" class="flex items-center">
+              <a href="/" class="flex items-center">
                 <img
                   src="/oak_logo_head.svg"
                   class="mr-3 h-8"

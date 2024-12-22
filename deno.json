@@ -31,11 +31,11 @@
     "tailwindcss/": "npm:/tailwindcss@3.4.1/",
     "tailwindcss/plugin": "npm:/tailwindcss@3.4.1/plugin.js",
     "@deno/gfm": "jsr:/@deno/gfm@0.8",
-    "$std/": "https://deno.land/std@0.216.0/"
+    "@std/dotenv/": "jsr:/@std/dotenv@^0.225/"
   },
   "compilerOptions": {
     "jsx": "react-jsx",
     "jsxImportSource": "preact"
   },
-  "nodeModulesDir": true
+  "nodeModulesDir": "auto"
 }
