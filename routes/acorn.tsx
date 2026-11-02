@@ -196,10 +196,10 @@ router.listen({ port: 3000 });`}
                   </li>
                   <li>
                     <a
-                      href="https://jsr.io/@oak/commons"
+                      href="https://github.com/oakserver/commons"
                       class="hover:underline"
                     >
-                      Commons
+                      Commons (archived)
                     </a>
                   </li>
                 </ul>
